@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-navy:       #0D1B3E;
+  --brand-navy-light: #152754;
+  --brand-gold:       #C9A84C;
+  --brand-gold-light: #E2C47A;
+  --brand-cream:      #FDF8F0;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-brand-navy text-white font-sans antialiased;
+    background: linear-gradient(135deg, #0D1B3E 0%, #0a1628 100%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 { @apply font-display; }
+
+  ::selection {
+    background: rgba(201, 168, 76, 0.3);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--brand-navy); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--brand-gold);
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(90deg, #C9A84C, #E2C47A, #C9A84C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glassmorphism card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+  }
+
+  /* Gold divider line */
+  .gold-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+  }
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-brand-navy transition-all duration-300;
+    background: linear-gradient(90deg, #C9A84C, #E2C47A);
+    box-shadow: 0 4px 24px rgba(201, 168, 76, 0.25);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(201, 168, 76, 0.4);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* Secondary outline button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-brand-gold border border-brand-gold transition-all duration-300;
+    background: transparent;
+  }
+  .btn-secondary:hover {
+    background: rgba(201, 168, 76, 0.1);
+    transform: translateY(-1px);
+  }
+
+  /* Input field */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 transition-all duration-300 focus:outline-none focus:border-brand-gold focus:bg-white/8;
+  }
+
+  /* Section heading with gold accent */
+  .section-heading {
+    @apply text-3xl md:text-4xl font-display font-bold text-white;
+  }
+  .section-heading span {
+    @apply text-gold-gradient;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+
+  .bg-white\/8 { background-color: rgba(255,255,255,0.08); }
+}

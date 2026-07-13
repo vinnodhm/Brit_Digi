@@ -1,0 +1,20 @@
+services:
+  # ── Backend: OMS & PDF Engine ─────────────────────────────────────────
+  - type: web
+    name: britannia-digi-print-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: node dist/index.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "5000"
+      - key: DATABASE_URL
+        sync: false          # set manually in Render dashboard
+      - key: PDF_OUTPUT_DIR
+        value: /tmp/prints
+      - key: FRONTEND_URL
+        sync: false          # set to Vercel URL after frontend deploys
