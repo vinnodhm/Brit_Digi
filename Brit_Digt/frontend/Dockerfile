@@ -17,6 +17,9 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 
+# Ensure public/ exists (Next.js optional folder — must be present for Docker COPY)
+RUN mkdir -p /app/public
+
 RUN npm run build
 
 # ── Stage 3: Production Runner ─────────────────────────────────────────

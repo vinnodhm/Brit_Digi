@@ -1,0 +1,2 @@
+# This file ensures the public/ directory is tracked by git.
+# Next.js uses this folder for static assets (favicons, robots.txt, images etc.)
