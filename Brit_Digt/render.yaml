@@ -1,7 +1,7 @@
 services:
   # ── Backend: OMS & PDF Engine (Node.js/Express) ───────────────────────
   - type: web
-    name: britannia-digi-print-backend
+    name: brit-digi-1britannia-digi-print-backend
     runtime: node
     rootDir: Brit_Digt/backend
     buildCommand: npm install && npm run build
@@ -31,6 +31,6 @@ services:
       - key: NODE_ENV
         value: production
       - key: NEXT_PUBLIC_API_URL
-        value: https://britannia-digi-print-backend.onrender.com
+        value: https://brit-digi-1britannia-digi-print-backend.onrender.com
       - key: NEXT_PUBLIC_RAZORPAY_KEY
         sync: false

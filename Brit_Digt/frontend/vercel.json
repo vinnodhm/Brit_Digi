@@ -7,7 +7,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://britannia-digi-print-backend.onrender.com/api/:path*"
+      "destination": "https://brit-digi-1britannia-digi-print-backend.onrender.com/api/:path*"
     }
   ],
   "headers": [
