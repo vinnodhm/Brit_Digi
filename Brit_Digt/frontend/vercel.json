@@ -1,13 +1,21 @@
 {
   "version": 2,
+  "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
-  "framework": "nextjs",
   "rewrites": [
     {
       "source": "/api/:path*",
       "destination": "https://britannia-digi-print-backend.onrender.com/api/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
     }
   ]
 }

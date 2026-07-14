@@ -1,9 +1,9 @@
 services:
-  # ── Backend: OMS & PDF Engine ─────────────────────────────────────────
+  # ── Backend: OMS & PDF Engine (Node.js/Express) ───────────────────────
   - type: web
     name: britannia-digi-print-backend
     runtime: node
-    rootDir: backend
+    rootDir: Brit_Digt/backend
     buildCommand: npm install && npm run build
     startCommand: node dist/index.js
     plan: free
@@ -13,8 +13,24 @@ services:
       - key: PORT
         value: "5000"
       - key: DATABASE_URL
-        sync: false          # set manually in Render dashboard
+        sync: false
       - key: PDF_OUTPUT_DIR
         value: /tmp/prints
       - key: FRONTEND_URL
-        sync: false          # set to Vercel URL after frontend deploys
+        value: https://brit-digi.onrender.com
+
+  # ── Frontend: Next.js Storefront ─────────────────────────────────────
+  - type: web
+    name: brit-digi-frontend
+    runtime: node
+    rootDir: Brit_Digt/frontend
+    buildCommand: npm install && npm run build
+    startCommand: node .next/standalone/server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        value: https://britannia-digi-print-backend.onrender.com
+      - key: NEXT_PUBLIC_RAZORPAY_KEY
+        sync: false

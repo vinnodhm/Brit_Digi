@@ -1,0 +1,12 @@
+# Ignore other projects in this monorepo — Vercel should only see the frontend
+Art_Work/
+PBTCV/
+Brit_Digt/backend/
+*.py
+*.pyc
+__pycache__/
+*.egg-info/
+venv/
+.venv/
+requirements*.txt
+pyproject.toml
